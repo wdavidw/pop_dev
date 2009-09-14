@@ -1,0 +1,60 @@
+[submodule "padrino"]
+	path = padrino
+	url = git@github.com:pop/padrino.git
+[submodule "pop_compat"]
+	path = pop_compat
+	url = git@github.com:pop/pop_compat.git
+[submodule "pop_config"]
+	path = pop_config
+	url = git@github.com:pop/pop_config.git
+[submodule "pop_environment"]
+	path = pop_environment
+	url = git@github.com:pop/pop_environment.git
+[submodule "pop_error"]
+	path = pop_error
+	url = git@github.com:pop/pop_error.git
+[submodule "pop_events"]
+	path = pop_events
+	url = git@github.com:pop/pop_events.git
+[submodule "pop_log"]
+	path = pop_log
+	url = git@github.com:pop/pop_log.git
+[submodule "pur"]
+	path = pur
+	url = git@github.com:pop/pur.git
+[submodule "pop_cache"]
+	path = pop_cache
+	url = git@github.com:pop/pop_cache.git
+[submodule "pop_dispatcher"]
+	path = pop_dispatcher
+	url = git@github.com:pop/pop_dispatcher.git
+[submodule "pop_http"]
+	path = pop_http
+	url = git@github.com:pop/pop_http.git
+[submodule "pop_i18n"]
+	path = pop_i18n
+	url = git@github.com:pop/pop_i18n.git
+[submodule "pop_parameters"]
+	path = pop_parameters
+	url = git@github.com:pop/pop_parameters.git
+[submodule "pop_doc"]
+	path = pop_doc
+	url = git@github.com:pop/pop_doc.git
+[submodule "pop_website"]
+	path = pop_website
+	url = git@github.com:pop/pop_website.git
+[submodule "porte"]
+	path = porte
+	url = git@github.com:pop/porte.git
+[submodule "pop_install"]
+	path = pop_install
+	url = git@github.com:pop/pop_install.git
+[submodule "pop_project"]
+	path = pop_project
+	url = git@github.com:pop/pop_project.git
+[submodule "pop_template"]
+	path = pop_template
+	url = git@github.com:pop/pop_template.git
+[submodule "pop_loader"]
+	path = pop_loader
+	url = git@github.com:pop/pop_loader.git
