@@ -49,12 +49,12 @@
 [submodule "pop_install"]
 	path = pop_install
 	url = git@github.com:pop/pop_install.git
-[submodule "pop_project"]
-	path = pop_project
-	url = git@github.com:pop/pop_project.git
 [submodule "pop_template"]
 	path = pop_template
 	url = git@github.com:pop/pop_template.git
 [submodule "pop_loader"]
 	path = pop_loader
 	url = git@github.com:pop/pop_loader.git
+[submodule "my_project"]
+	path = my_project
+	url = git@github.com:pop/my_project.git

@@ -1,32 +1,54 @@
 <?php
 
-	$dirBase = dirname(__FILE__).'/';
+	$_base = dirname(__FILE__).'/';
 	// Load dependancies
-	require_once($dirBase.'pur/src/pur.inc.php');
-	require_once($dirBase.'padrino/src/Padrino.php');
-	// Create default configuration
-	// Merge with provided configuration if any
+	require_once($_base.'pur/src/pur.inc.php');
+	require_once($_base.'pop_loader/src/PopLoader.php');
+	
+	if(isset($pop['pop_loader']['base'])) $_appBase = $pop['pop_loader']['base'];
+	else if(isset($pop['pop_config']['base'])) $_appBase = $pop['pop_config']['base'];
+	
+	// Provided configuration
+	if(!isset($pop)) $pop = array();
+	
+	// Framework configuration
 	$pop = PurArray::merge(array(
-		'base'=>$dirBase,
-		'repositories'=>array(
-			$dirBase,
+		'pop_loader'=>array(
+			'base'=>$_appBase,
+			'repositories'=>$_base.'/.'
 		),
-		'pop_error'=>array('stdout'=>true),
-		'load_on_startup'=>array('pop_error','pop_loader'),
-	),isset($pop)&&is_array($pop)?$pop:array());
-	// Add pop_compat on startup if PHP version lower than 5.2
-	if(version_compare(phpversion(),'5.2','<')){
-		$pop['load_on_startup'][] = 'pop_compat';
-	}
-	// Clear unused variables and leave padrino in memory
-	unset($dirBase);
-	// Initialize pop
-	$pop = new Padrino($pop);
+		'pop_config'=>array(
+			'base'=>$_appBase
+		),
+		'pop_error'=>array(
+			'stdout'=>true
+		),
+		'pop_environment'=>array(
+		)
+	),$pop);
+
+	// Bootstraping
+	$_popLoader = new PopLoader($pop['pop_loader']);
+	$_popConfig = new PopConfig($pop);
+	$_popEnvironment = new PopEnvironment($pop['pop_environment'],$_popLoader);
+	$pop = new Padrino(
+		$_popLoader,
+		$_popConfig,
+		$_popEnvironment,
+		'pop_error',
+		version_compare(phpversion(),'5.2','<')?'pop_compat':null);
+	
+	// Clear context
+	unset($_base);
+	unset($_popLoader);
+	unset($_popConfig);
+	unset($_popEnvironment);
+	
 	//if(__FILE__==$_SERVER["PWD"].'/'.$_SERVER["PHP_SELF"]){
 	//if($_SERVER["PHP_SELF"]=='pop.php'){
-	if(count($_SERVER['argv'])>1){
+	if(isset($_SERVER['argv'])&&in_array('console',$_SERVER['argv'])){
 		// console mode
-		$pop->pop_install->{!empty($_SERVER['argv'][1])?$_SERVER['argv'][1]:'console'}();
+		$pop->pop_install->console();
 	}else{
 		// Include mode
 		// Available in current context and as a returned value
