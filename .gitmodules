@@ -34,7 +34,7 @@
 [submodule "pop_i18n"]
 	path = pop_i18n
 	url = git@github.com:pop/pop_i18n.git
-[submodule "pop_parameters"]
+[submodule "pop_params"]
 	path = pop_parameters
 	url = git@github.com:pop/pop_parameters.git
 [submodule "pop_doc"]

@@ -5,8 +5,10 @@
 	require_once($_base.'pur/src/pur.inc.php');
 	require_once($_base.'pop_loader/src/PopLoader.php');
 	
-	if(isset($pop['pop_loader']['base'])) $_appBase = $pop['pop_loader']['base'];
+	if(isset($pop['base'])) $_appBase = $pop['base'];
+	else if(isset($pop['pop_loader']['base'])) $_appBase = $pop['pop_loader']['base'];
 	else if(isset($pop['pop_config']['base'])) $_appBase = $pop['pop_config']['base'];
+	else $_appBase = $base.'../';
 	
 	// Provided configuration
 	if(!isset($pop)) $pop = array();
@@ -47,8 +49,11 @@
 	//if(__FILE__==$_SERVER["PWD"].'/'.$_SERVER["PHP_SELF"]){
 	//if($_SERVER["PHP_SELF"]=='pop.php'){
 	if(isset($_SERVER['argv'])&&in_array('console',$_SERVER['argv'])){
-		// console mode
-		$pop->pop_install->console();
+		if($_SERVER['argv'][1]=='console'){
+			$pop->pop_install_console->init();
+		}else{
+			$pop->pop_install_console->exec();
+		}
 	}else{
 		// Include mode
 		// Available in current context and as a returned value
