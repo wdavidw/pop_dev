@@ -58,3 +58,6 @@
 [submodule "my_project"]
 	path = my_project
 	url = git@github.com:pop/my_project.git
+[submodule "pop_xml"]
+	path = pop_xml
+	url = git@github.com:pop/pop_xml.git
