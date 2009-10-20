@@ -46,8 +46,6 @@
 	unset($_popConfig);
 	unset($_popEnvironment);
 	
-	//if(__FILE__==$_SERVER["PWD"].'/'.$_SERVER["PHP_SELF"]){
-	//if($_SERVER["PHP_SELF"]=='pop.php'){
 	if(isset($_SERVER['argv'])&&in_array('console',$_SERVER['argv'])){
 		if($_SERVER['argv'][1]=='console'){
 			$pop->pop_install_console->init();

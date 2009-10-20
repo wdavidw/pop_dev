@@ -61,3 +61,6 @@
 [submodule "pop_xml"]
 	path = pop_xml
 	url = git@github.com:pop/pop_xml.git
+[submodule "dojo"]
+	path = dojo
+	url = git@github.com:wdavidw/dojo.git
