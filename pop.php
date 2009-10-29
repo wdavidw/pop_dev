@@ -13,14 +13,19 @@
 	
 	// Provided configuration
 	if(!isset($pop)) $pop = array();
-	
+
 	// Framework configuration
 	$pop = PurArray::merge(array(
 		'pop_cache'=>array(
+			'stores'=>array(
+				'PopCacheFile'=>array(
+					'base'=>$_appBase,
+				)
+			)
 		),
 		'pop_loader'=>array(
 			'base'=>$_appBase,
-			'repositories'=>$_base.'/.'
+			'repositories'=>$_base.'/.',
 		),
 		'pop_config'=>array(
 			'base'=>$_appBase
