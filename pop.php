@@ -16,6 +16,8 @@
 	
 	// Framework configuration
 	$pop = PurArray::merge(array(
+		'pop_cache'=>array(
+		),
 		'pop_loader'=>array(
 			'base'=>$_appBase,
 			'repositories'=>$_base.'/.'
