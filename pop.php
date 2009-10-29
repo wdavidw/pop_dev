@@ -3,6 +3,7 @@
 	$_base = dirname(__FILE__).'/';
 	// Load dependancies
 	require_once($_base.'pur/src/pur.inc.php');
+	require_once($_base.'pop_cache/src/pop_cache.inc.php');
 	require_once($_base.'pop_loader/src/PopLoader.php');
 	
 	if(isset($pop['base'])) $_appBase = $pop['base'];
@@ -30,10 +31,12 @@
 	),$pop);
 
 	// Bootstraping
-	$_popLoader = new PopLoader($pop['pop_loader']);
+	$_popCache = new PopCache($pop['pop_cache']);
+	$_popLoader = new PopLoader($pop['pop_loader'],$_popCache);
 	$_popConfig = new PopConfig($pop);
 	$_popEnvironment = new PopEnvironment($pop['pop_environment'],$_popLoader);
 	$pop = new Padrino(
+		$_popCache,
 		$_popLoader,
 		$_popConfig,
 		$_popEnvironment,
@@ -42,6 +45,7 @@
 	
 	// Clear context
 	unset($_base);
+	unset($_popCache);
 	unset($_popLoader);
 	unset($_popConfig);
 	unset($_popEnvironment);
