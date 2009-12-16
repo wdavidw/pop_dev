@@ -34,9 +34,6 @@
 [submodule "pop_i18n"]
 	path = pop_i18n
 	url = git@github.com:pop/pop_i18n.git
-[submodule "pop_params"]
-	path = pop_params
-	url = git@github.com:pop/pop_params.git
 [submodule "pop_doc"]
 	path = pop_doc
 	url = git@github.com:pop/pop_doc.git
@@ -64,3 +61,6 @@
 [submodule "dojo"]
 	path = dojo
 	url = git@github.com:wdavidw/dojo.git
+[submodule "pop_params"]
+	path = pop_params
+	url = git@github.com:pop/pop_params.git
