@@ -9,7 +9,7 @@
 	if(isset($pop['base'])) $_appBase = $pop['base'];
 	else if(isset($pop['pop_loader']['base'])) $_appBase = $pop['pop_loader']['base'];
 	else if(isset($pop['pop_config']['base'])) $_appBase = $pop['pop_config']['base'];
-	else $_appBase = $base.'../';
+	else $_appBase = $_base.'../';
 	
 	// Provided configuration
 	if(!isset($pop)) $pop = array();
@@ -48,7 +48,9 @@
 		$_popConfig,
 		$_popEnvironment,
 		'pop_error',
-		version_compare(phpversion(),'5.2','<')?'pop_compat':null);
+		'pop_log',
+		version_compare(phpversion(),'5.2','<')?'pop_compat':null
+	);
 	
 	// Clear context
 	unset($_base);
