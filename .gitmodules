@@ -64,3 +64,6 @@
 [submodule "pop_params"]
 	path = pop_params
 	url = git@github.com:pop/pop_params.git
+[submodule "pop_hbase"]
+	path = pop_hbase
+	url = ./pop_hbase

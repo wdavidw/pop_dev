@@ -28,20 +28,25 @@
 			'repositories'=>$_base.'/.',
 		),
 		'pop_config'=>array(
-			'base'=>$_appBase
+			'base'=>$_appBase,
+			'modes'=>array('local')
 		),
 		'pop_error'=>array(
-			'stdout'=>true
 		),
 		'pop_environment'=>array(
 		)
 	),$pop);
 
 	// Bootstraping
+	// Pop Compat is loaded before Pop Config which need json functions
+	// Pop Compat is loader after PopLoader so we don't require it if we don't need it
 	$_popCache = new PopCache($pop['pop_cache']);
 	$_popLoader = new PopLoader($pop['pop_loader'],$_popCache);
-	$_popConfig = new PopConfig($pop);
+	$_popCompat = version_compare(phpversion(),'5.2','<')?new PopCompat():null;
+	$_popConfig = new PopConfig($pop,$_popCache);
 	$_popEnvironment = new PopEnvironment($pop['pop_environment'],$_popLoader);
+	$_popCache->configure($_popConfig->pop_cache);
+	
 	$pop = new Padrino(
 		$_popCache,
 		$_popLoader,
@@ -56,6 +61,7 @@
 	unset($_base);
 	unset($_popCache);
 	unset($_popLoader);
+	unset($_popCompat);
 	unset($_popConfig);
 	unset($_popEnvironment);
 	
