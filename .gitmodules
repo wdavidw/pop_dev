@@ -67,3 +67,6 @@
 [submodule "pop_hbase"]
 	path = pop_hbase
 	url = ./pop_hbase
+[submodule "pop_couch"]
+	path = pop_couch
+	url = ./pop_couch
