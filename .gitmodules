@@ -69,4 +69,4 @@
 	url = ./pop_hbase
 [submodule "pop_couch"]
 	path = pop_couch
-	url = ./pop_couch
+	url = git@github.com:pop/pop_couch.git
